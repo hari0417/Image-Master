@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Image Masterz</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+<link rel="icon" href="image/logo2.png" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  padding-top: 100px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background: #0a0a0a;
+  border-radius: 50px;
+  border: 1px solid rgba(230,194,0,0.3);
+  box-shadow: 0 0 15px rgba(230,194,0,0.2);
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.logo h2 {
+  color: #fff;
+}
+
+.logo span {
+  color: #E6C200; /* soft gold */
+}
+
+/* NAV */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #d1d5db;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #E6C200;
+}
+
+.nav-menu a.active {
+  color: #E6C200;
+}
+
+/* BUTTON */
+.nav-btn {
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: #E6C200;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  box-shadow: 0 0 15px #E6C200;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url("bg1.jpg") center/cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+}
+
+.hero-text {
+  position: relative;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #E6C200;
+}
+
+.hero-text p {
+  margin-top: 20px;
+  color: #9ca3af;
+  font-size: 18px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 35px;
+  border-radius: 30px;
+  background: #E6C200;
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px #E6C200;
+}
+
+/* REVIEW */
+.review-section {
+  padding: 100px 20px;
+  text-align: center;
+  background: #020202;
+}
+
+.review-section h2 {
+  color: #453b04;
+  margin-bottom: 40px;
+}
+
+.review-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.review-card {
+  width: 280px;
+  padding: 25px;
+  border-radius: 20px;
+  background: #111;
+  border: 1px solid rgba(230,194,0,0.2);
+}
+
+.review-card p {
+  color: #cbd5e1;
+}
+
+.review-card h4 {
+  margin-top: 15px;
+  color: #E6C200;
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="image/logo2.png" />
+    <h2>Image <span>Masterz</span></h2>
+  </div>
+
+  <nav class="nav-menu">
+    <a href="#" class="active">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="booking.html">Booking</a>
+    <a href="packages.html">Packages</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <a href="booking.html" class="nav-btn">Book Now</a>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Capture Timeless Moments</h1>
+    <p>Weddings, Events & Cinematic Photography</p>
+    <a href="booking.html" class="btn">Book Your Session</a>
+  </div>
+</section>
+
+<section class="review-section">
+  <h2>Client Reviews ✨</h2>
+
+<div id="review-list" class="review-cards"></div>
+
+</section>
+
+<script>
+function loadReviews() {
+  let container = document.getElementById("review-list");
+  let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+
+  if (reviews.length === 0) {
+    container.innerHTML = "<p>No reviews yet</p>";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  reviews.forEach(r => {
+
+    let stars = "⭐".repeat(r.stars);
+    let firstLetter = r.name.charAt(0).toUpperCase();
+
+    container.innerHTML += `
+      <div class="review-card">
+        <div class="avatar">${firstLetter}</div>
+        <h4>${r.name}</h4>
+        <div class="stars">${stars}</div>
+        <p>${r.text}</p>
+      </div>
+    `;
+  });
+}
+
+loadReviews();
+</script>
+  
+</section>
+
+</body>
+</html>
