@@ -1,401 +1,339 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Packages</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  padding-top:100px;
+  background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),url(bg1.jpg);
+  background-size:cover;
+  color:#fff;
+}
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  display:flex;
+  justify-content:space-between;
+  padding:12px 40px;
+  border-radius:50px;
+  background:rgba(0,0,0,0.6);
+}
+.logo span{color:#ffd700;}
+.nav-center{display:flex; gap:30px;}
+.nav-center a{color:#ddd;text-decoration:none;}
+.nav-center a.active, .nav-center a:hover{color:#ffd700;}
 
-      body {
-        padding-top: 100px;
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
-          url(bg1.jpg);
-        background-size: cover;
-        background-position: center;
-        color: white;
-      }
+/* TITLE */
+.main{text-align:center;}
+.main h2{
+  font-size:38px;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,#ffd700,#c9a227);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-      /* ===== NAVBAR ===== */
-      .navbar {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 40px;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(20px);
-        border-radius: 50px;
-        border: 1px solid rgba(255, 215, 0, 0.2);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-        z-index: 1000;
-      }
+/* CARDS */
+.packages{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  padding:20px;
+}
+.card{
+  width:280px;
+  padding:20px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  transition:.4s;
+  position:relative;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 25px rgba(255,215,0,0.4);
+}
+.card:nth-child(2)::after{
+  content:"POPULAR";
+  position:absolute;
+  top:15px;
+  right:-35px;
+  background:#ffd700;
+  color:#000;
+  padding:5px 40px;
+  transform:rotate(45deg);
+  font-size:12px;
+}
 
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
+/* TOP ROW */
+.top-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:15px 0;
+}
+.price{
+  background:#ffd700;
+  color:#000;
+  padding:8px 15px;
+  border-radius:20px;
+  font-weight:bold;
+}
+.view-btn{
+  background:#0072ff;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+}
 
-      .logo img {
-        width: 40px;
-      }
+/* BUTTON */
+.book-btn{
+  margin-top:15px;
+  display:block;
+  text-align:center;
+  padding:10px;
+  border-radius:20px;
+  background:#ffd700;
+  color:#000;
+  text-decoration:none;
+  font-weight:600;
+}
 
-      .logo span {
-        color: #ffd700;
-      }
+/* PAYMENT */
+.payment{
+  margin:60px auto;
+  width:80%;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  text-align:center;
+}
+.payment h2{color:#ffd700;}
+.payment p{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:6px 0;
+}
 
-      .nav-center {
-        display: flex;
-        gap: 30px;
-      }
+/* MODAL */
+.modal{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+  padding:20px;
+}
+.modal.show{
+  opacity:1;
+  visibility:visible;
+}
+.modal-content{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  max-width:500px;
+  width:100%;
+  padding:20px;
+  position:relative;
+  color:#fff;
+}
+.close-btn{
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:22px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.modal-content ul{
+  margin-top:10px;
+  padding-left:20px;
+}
+.modal-content ul li{
+  margin-bottom:5px;
+}
 
-      .nav-center a {
-        text-decoration: none;
-        color: #ddd;
-        position: relative;
-        transition: 0.3s;
-      }
+/* MOBILE */
+@media(max-width:768px){
+  .card{width:90%;}
+  .top-row{flex-direction:column; gap:10px;}
+  .modal-content{width:95%;}
+}
+</style>
+</head>
+<body>
 
-      .nav-center a:hover,
-      .nav-center a.active {
-        color: #ffd700;
-      }
+<header class="navbar">
+  <h2>Image <span>Masterz</span></h2>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a class="active">Packages</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
 
-      .nav-center a::after {
-        content: "";
-        position: absolute;
-        bottom: -6px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background: linear-gradient(90deg, #ffd700, transparent);
-        transition: 0.4s;
-      }
+<div class="main">
+<h2>Our Packages</h2>
+<div class="packages">
 
-      .nav-center a:hover::after {
-        width: 100%;
-      }
+<!-- BASIC -->
+<div class="card" data-package="Basic Package">
+<h3>Basic Package</h3>
+<div class="top-row">
+<div class="price">₹44,999</div>
+<div class="view-btn">View Details</div>
+</div>
+<a href="booking.html" class="book-btn">Book Now</a>
+<div class="details-content" style="display:none">
+<p><b style="color: #ffd700;">Description:</b> Covers your event with professional photographer & videographer. Capture rituals, candid moments and emotions. Select up to 300 photos. Includes 80-page premium album</p>
+<ul>
+<li>Traditional Photo - 1</li>
+<li>Traditional Video - 1</li>
+<li>Album (80 pages)</li>
+<li>Video with pendrive</li>
+<li>Family Frame - 2</li>
+</ul>
+</div>
+</div>
 
-      /* ===== TITLE ===== */
-      .main {
-        text-align: center;
-      }
+<!-- STANDARD -->
+<div class="card" data-package="Standard Package">
+<h3>Standard Package</h3>
+<div class="top-row">
+<div class="price">₹69,999</div>
+<div class="view-btn">View Details</div>
+</div>
+<a href="booking.html" class="book-btn">Book Now</a>
+<div class="details-content" style="display:none">
+<p><b style="color: #ffd700;">Description:</b> Includes traditional + candid coverage. Capture all rituals and emotions. Select up to 400 photos. Premium 100-page album with professional editing.</p>
+<ul>
+<li>Traditional Photo - 1</li>
+<li>Traditional Video - 1</li>
+<li>Candid Photo - 1</li>
+<li>Album (100 pages)</li>
+<li>Video with pendrive</li>
+<li>Family Frame - 2</li>
+<li>Couple Calendar - 2</li>
+</ul>
+</div>
+</div>
 
-      .main h2 {
-        font-size: 38px;
-        margin-bottom: 20px;
-        background: linear-gradient(90deg, #ffd700, #c9a227);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+<!-- PREMIUM -->
+<div class="card" data-package="Premium Package">
+<h3>Premium Package</h3>
+<div class="top-row">
+<div class="price">₹99,999</div>
+<div class="view-btn">View Details</div>
+</div>
+<a href="booking.html" class="book-btn">Book Now</a>
+<div class="details-content" style="display:none">
+<p><b style="color: #ffd700;">Description:</b> Premium coverage with cinematic storytelling. Capture rituals, candid moments and creativity. Select up to 500 photos. Luxury album with high-end finishing.</p>
+<ul>
+<li>Traditional Photo - 1</li>
+<li>Traditional Video - 1</li>
+<li>Candid Photo - 1</li>
+<li>Candid Video - 1</li>
+<li>Album (120 pages)</li>
+<li>Video with pendrive</li>
+<li>Candid Video Out</li>
+<li>Insta Reels - 2</li>
+<li>Family Frame - 3</li>
+<li>Couple Calendar - 2</li>
+</ul>
+</div>
+</div>
 
-      /* ===== GRID ===== */
-      .packages {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        padding: 30px;
-      }
+<!-- ELITE -->
+<div class="card" data-package="Elite Package">
+<h3>Elite Package</h3>
+<div class="top-row">
+<div class="price">₹1,59,999</div>
+<div class="view-btn">View Details</div>
+</div>
+<a href="booking.html" class="book-btn">Book Now</a>
+<div class="details-content" style="display:none">
+<p><b style="color: #ffd700;">Description:</b> Complete luxury wedding coverage. Includes pre/post wedding shoots, drone coverage and cinematic edits. High-end albums and premium deliverables for lifetime memories.</p>
+<ul>
+<li>Traditional Photo - 1</li>
+<li>Traditional Video - 1</li>
+<li>Candid Photo - 1</li>
+<li>Candid Video - 1</li>
+<li>Drone (Helicam)</li>
+<li>Pre/Post Wedding Shoot</li>
+<li>Album (120 pages)</li>
+<li>Outdoor Album (60 pages)</li>
+<li>Video with pendrive</li>
+<li>Candid Video Out</li>
+<li>Insta Reels</li>
+<li>Family Frame - 3</li>
+<li>Couple Calendar - 2</li>
+</ul>
+</div>
+</div>
 
-      /* ===== CARD ===== */
-      .card {
-        width: 280px;
-        padding: 25px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 215, 0, 0.15);
-        transition: 0.4s;
-        position: relative;
-      }
+</div>
 
-      .card:hover {
-        transform: translateY(-15px) scale(1.05);
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-      }
+<!-- PAYMENT -->
+<div class="payment">
+<h2>Payment Terms</h2>
+<p><b>20%</b> – Advance payment at the time of booking</p>
+<p><b>70%</b> – Payable on the day of the event</p>
+<p><b>10%</b> – Upon final album approval</p>
+</div>
 
-      /* ===== CARD TEXT ===== */
-      .card h3 {
-        margin-bottom: 15px;
-      }
+</div>
 
-      /* ===== PRICE ROW ===== */
-      .top-row {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 15px;
-      }
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
 
-      .price {
-        background: linear-gradient(45deg, #ffd700, #c9a227);
-        color: black;
-        padding: 8px 16px;
-        border-radius: 25px;
-        font-weight: bold;
-      }
+<script>
+// modal functionality
+const modal = document.getElementById("modal");
+const modalBody = document.getElementById("modal-body");
+const closeBtn = document.querySelector(".close-btn");
 
-      .view-btn {
-        background: linear-gradient(45deg, #00c6ff, #0072ff);
-        padding: 8px 14px;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
+document.querySelectorAll(".view-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const card = btn.closest(".card");
+    const content = card.querySelector(".details-content").innerHTML;
+    modalBody.innerHTML = content;
+    modal.classList.add("show");
+  });
+});
 
-      .view-btn:hover {
-        transform: scale(1.1);
-      }
+closeBtn.addEventListener("click",()=> modal.classList.remove("show"));
+window.addEventListener("click",(e)=>{ if(e.target===modal) modal.classList.remove("show"); });
+</script>
 
-      /* ===== DETAILS ===== */
-      .details {
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.5s ease;
-        text-align: left;
-        font-size: 13px;
-      }
-
-      .details.show {
-        max-height: 600px;
-        margin-top: 10px;
-      }
-
-      /* ===== BUTTON ===== */
-      .book-btn {
-        margin-top: 15px;
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 25px;
-        background: linear-gradient(45deg, #ffd700, #c9a227);
-        text-decoration: none;
-        color: black;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      .book-btn:hover {
-        transform: scale(1.1);
-      }
-
-      /* ===== POPULAR TAG ===== */
-      .card:nth-child(2)::after {
-        content: "POPULAR";
-        position: absolute;
-        top: 20px;
-        right: -40px;
-        background: linear-gradient(45deg, #ffd700, #c9a227);
-        color: black;
-        padding: 6px 50px;
-        transform: rotate(45deg);
-        font-size: 12px;
-        font-weight: bold;
-      }
-
-      /* ===== PAYMENT ===== */
-      .payment {
-        margin: 60px auto;
-        width: 80%;
-        padding: 30px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 215, 0, 0.2);
-      }
-
-      .payment h2 {
-        color: #ffd700;
-      }
-
-      /* ===== MOBILE ===== */
-      @media (max-width: 768px) {
-        .card {
-          width: 90%;
-        }
-        .navbar {
-          padding: 10px 20px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header class="navbar">
-      <div class="logo">
-        <img src="image/logo2.png" />
-        <h2>Image <span>Masterz</span></h2>
-      </div>
-
-      <div class="nav-center">
-        <a href="index.html">Home</a>
-        <a href="Services.html">Services</a>
-        <a href="#" class="active">Packages</a>
-        <a href="booking.html">Booking</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </header>
-
-    <div class="main">
-      <h2>Our Packages</h2>
-
-      <div class="packages">
-        <!-- BASIC -->
-        <div class="card">
-          <h3>Basic Package</h3>
-
-          <div class="top-row">
-            <div class="price">₹44,999</div>
-            <div class="view-btn" onclick="toggle(this)">View Details</div>
-          </div>
-
-          <div class="details">
-            <p>
-              <b>Description:</b> Covers your event with professional
-              photographer & videographer. Capture rituals, candid moments and
-              emotions. Select up to 300 photos. Includes 80-page premium album
-            </p>
-            <ul>
-              <li>Traditional Photo - 1</li>
-              <li>Traditional Video - 1</li>
-              <li>Album (80 pages)</li>
-              <li>Video with pendrive</li>
-              <li>Family Frame - 2</li>
-            </ul>
-          </div>
-
-          <a href="booking.html" class="book-btn">Book Now</a>
-        </div>
-
-        <!-- STANDARD -->
-        <div class="card">
-          <h3>Standard Package</h3>
-
-          <div class="top-row">
-            <div class="price">₹69,999</div>
-            <div class="view-btn" onclick="toggle(this)">View Details</div>
-          </div>
-
-          <div class="details">
-            <p>
-              <b>Description:</b> Includes traditional + candid coverage.
-              Capture all rituals and emotions. Select up to 400 photos. Premium
-              100-page album with professional editing.
-            </p>
-            <ul>
-              <li>Traditional Photo - 1</li>
-              <li>Traditional Video - 1</li>
-              <li>Candid Photo - 1</li>
-              <li>Album (100 pages)</li>
-              <li>Video with pendrive</li>
-              <li>Family Frame - 2</li>
-              <li>Couple Calendar - 2</li>
-            </ul>
-          </div>
-
-          <a href="booking.html" class="book-btn">Book Now</a>
-        </div>
-
-        <!-- PREMIUM -->
-        <div class="card">
-          <h3>Premium Package</h3>
-
-          <div class="top-row">
-            <div class="price">₹99,999</div>
-            <div class="view-btn" onclick="toggle(this)">View Details</div>
-          </div>
-
-          <div class="details">
-            <p>
-              <b>Description:</b> Premium coverage with cinematic storytelling.
-              Capture rituals, candid moments and creativity. Select up to 500
-              photos. Luxury album with high-end finishing.
-            </p>
-
-            <ul>
-              <li>Traditional Photo - 1</li>
-              <li>Traditional Video - 1</li>
-              <li>Candid Photo - 1</li>
-              <li>Candid Video - 1</li>
-              <li>Album (120 pages)</li>
-              <li>Video with pendrive</li>
-              <li>Candid Video Out</li>
-              <li>Insta Reels - 2</li>
-              <li>Family Frame - 3</li>
-              <li>Couple Calendar - 2</li>
-            </ul>
-          </div>
-
-          <a href="booking.html" class="book-btn">Book Now</a>
-        </div>
-
-        <!-- ELITE -->
-        <div class="card">
-          <h3>Elite Package</h3>
-
-          <div class="top-row">
-            <div class="price">₹1,59,999</div>
-            <div class="view-btn" onclick="toggle(this)">View Details</div>
-          </div>
-
-          <div class="details">
-            <p>
-              <b>Description:</b> Complete luxury wedding coverage. Includes
-              pre/post wedding shoots, drone coverage and cinematic edits.
-              High-end albums and premium deliverables for lifetime memories.
-            </p>
-
-            <ul>
-              <li>Traditional Photo - 1</li>
-              <li>Traditional Video - 1</li>
-              <li>Candid Photo - 1</li>
-              <li>Candid Video - 1</li>
-              <li>Drone (Helicam)</li>
-              <li>Pre/Post Wedding Shoot</li>
-              <li>Album (120 pages)</li>
-              <li>Outdoor Album (60 pages)</li>
-              <li>Video with pendrive</li>
-              <li>Candid Video Out</li>
-              <li>Insta Reels</li>
-              <li>Family Frame - 3</li>
-              <li>Couple Calendar - 2</li>
-            </ul>
-          </div>
-
-          <a href="booking.html" class="book-btn">Book Now</a>
-        </div>
-      </div>
-
-      <div class="payment">
-        <h2>Payment Details</h2>
-        <p><b>20%</b> - Booking</p>
-        <p><b>70%</b> - Event Day</p>
-        <p><b>10%</b> - Album Approval</p>
-      </div>
-    </div>
-
-    <script>
-      function toggle(btn) {
-        let details = btn.parentElement.nextElementSibling;
-        details.classList.toggle("show");
-      }
-    </script>
-  </body>
+</body>
 </html>

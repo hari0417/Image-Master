@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Our Services</title>
+<title>Our Services - Premium</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -10,130 +10,55 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  padding-top: 100px;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
-    url(bg1.jpg);
-  background-size: cover;
-  background-position: center;
-  color: white;
-}
-
-/* ✅ FIX FOR LINK COLOR ISSUE */
-.card-link {
-  text-decoration: none !important;
-  color: inherit !important;
-  display: block;
-}
-
-.card-link * {
-  color: inherit !important;
-  text-decoration: none !important;
-}
+* {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}
+body {padding-top:100px; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url(bg1.jpg); background-size: cover; background-position: center; color:white;}
 
 /* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 40px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(20px);
-  border-radius: 50px;
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-}
+.navbar {position: fixed; top: 20px; left:50%; transform:translateX(-50%); width:90%; display:flex; justify-content:space-between; align-items:center; padding:12px 40px; background: rgba(0,0,0,0.6); backdrop-filter: blur(20px); border-radius:50px; border:1px solid rgba(255,215,0,0.2); box-shadow:0 0 20px rgba(255,215,0,0.2); z-index:1000;}
+.navbar img {width:40px;}
+.brand {font-size:20px; font-weight:600;}
+.brand span {color:#ffd700;}
+.nav-center {display:flex; gap:30px;}
+.nav-center a {text-decoration:none; color:#ddd; font-weight:500; position:relative; transition:0.3s;}
+.nav-center a.active,.nav-center a:hover{color:#ffd700;}
+.nav-center a::after {content:""; position:absolute; bottom:-6px; left:0; width:0%; height:2px; background: linear-gradient(90deg,#ffd700,transparent); transition:0.4s;}
+.nav-center a:hover::after,.nav-center a.active::after {width:100%;}
 
-.navbar img {
-  width: 40px;
-}
+/* SECTION HEADINGS */
+.section {padding:60px 20px;}
+.section h2 {margin-bottom:35px; color:#ffd700; border-left:5px solid #ffd700; padding-left:10px; font-size:1.8rem; font-weight:600; text-transform:uppercase;}
 
-.brand {
-  font-size: 20px;
-  font-weight: 600;
-}
+/* FILTER BUTTONS */
+.filters {display:flex; justify-content:center; gap:15px; margin-bottom:40px; flex-wrap:wrap;}
+.filters button {padding:10px 20px; border-radius:25px; border:none; background: rgba(255,215,0,0.2); color:#fff; font-weight:600; cursor:pointer; transition:0.3s;}
+.filters button.active,.filters button:hover {background:linear-gradient(45deg,#ffd700,#c9a227); color:black;}
 
-.brand span {
-  color: #ffd700;
-}
+/* GRID CARDS */
+.grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;}
+.card {background: rgba(255,255,255,0.05); padding:25px; border-radius:20px; backdrop-filter:blur(25px); border:1px solid rgba(255,215,0,0.15); box-shadow:0 15px 40px rgba(0,0,0,0.6); text-align:center; transition:transform 0.4s, box-shadow 0.4s; cursor:pointer;}
+.card:hover {transform: translateY(-15px) scale(1.05) rotateX(2deg); box-shadow:0 25px 60px rgba(255,215,0,0.4);}
+.card i {font-size:28px; color:#ffd700; margin-bottom:15px; transition: transform 0.3s, color 0.3s;}
+.card:hover i {color:#fff; transform: scale(1.3) rotate(10deg);}
+.card h3 {margin:10px 0 10px; color:#fff; font-size:1.2rem;}
+.card p {font-size:0.95rem; color:#ccc; line-height:1.4;}
+.hidden {opacity:0; transform:translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;}
+.show {opacity:1; transform:translateY(0);}
 
-.nav-center {
-  display: flex;
-  gap: 30px;
-}
+/* CTA BUTTON */
+.card .cta {display:inline-block; margin-top:15px; padding:8px 20px; border-radius:25px; border:none; background:linear-gradient(45deg,#ffd700,#c9a227); color:black; font-weight:600; cursor:pointer; transition:0.3s; text-decoration:none;}
+.card .cta:hover {transform:scale(1.00);}
 
-.nav-center a {
-  text-decoration: none;
-  color: #ddd;
-}
+/* MODAL */
+.modal {display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px;}
+.modal-content {background: rgba(255,255,255,0.05); border-radius:20px; padding:20px; max-width:700px; width:100%; backdrop-filter:blur(20px); position:relative; color:#fff; animation:fadeIn 0.5s ease;}
+.modal-content img {width:100%; border-radius:15px; margin-bottom:15px;}
+.modal-content h3 {margin-bottom:10px; color:#ffd700;}
+.modal-content p {color:#ccc;}
+.modal .close {position:absolute; top:15px; right:20px; font-size:22px; cursor:pointer; color:#ffd700;}
+@keyframes fadeIn {from {opacity:0; transform: scale(0.9);} to {opacity:1; transform: scale(1);}}
 
-.nav-center a.active {
-  color: #ffd700;
-}
-
-/* SECTION */
-.section {
-  padding: 60px;
-}
-
-.section h2 {
-  margin-bottom: 25px;
-  color: #ffd700;
-  border-left: 4px solid #ffd700;
-  padding-left: 10px;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-/* CARD */
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  transition: 0.4s;
-  text-align: center;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-/* ICON */
-.card i {
-  font-size: 28px;
-  color: #ffd700;
-  margin-bottom: 10px;
-}
-
-.card h3 {
-  margin: 10px 0;
-  color: #fff;
-}
-
-.card p {
-  font-size: 14px;
-  color: #ccc;
-}
+/* MOBILE */
+@media (max-width:768px){.navbar{padding:10px 20px;}.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 
@@ -142,7 +67,6 @@ body {
 <header class="navbar">
   <img src="assets/logo.png" />
   <div class="brand">Image <span>Masterz</span></div>
-
   <nav class="nav-center">
     <a href="index.html">Home</a>
     <a href="#" class="active">Services</a>
@@ -153,244 +77,213 @@ body {
 </header>
 
 <div class="section">
-  <h2>📸 Core Photography</h2>
+  <div class="filters">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="core">Core</button>
+    <button data-filter="videography">Videography</button>
+    <button data-filter="prepost">Pre/Post Wedding</button>
+    <button data-filter="commercial">Commercial</button>
+    <button data-filter="personal">Personal</button>
+    <button data-filter="editing">Editing</button>
+  </div>
 
   <div class="grid">
-
-    <a href="wedding.html" class="card card-link">
+    <!-- CORE SERVICES -->
+    <div class="card hidden" data-category="core">
       <i class="fa-solid fa-ring"></i>
       <h3>Wedding Photography</h3>
       <p>Full coverage including engagement, reception & rituals.</p>
-    </a>
-
-    <a href="wedding.html" class="card card-link">
+      <button class="cta" onclick="openModal('modal1')">View Details</button>
+    </div>
+    <div class="card hidden" data-category="core">
       <i class="fa-solid fa-camera"></i>
       <h3>Candid Photography</h3>
       <p>Natural, emotional and unposed moments captured beautifully.</p>
-    </a>
-
-    <div class="card">
+      <button class="cta" onclick="openModal('modal2')">View Details</button>
+    </div>
+    <div class="card hidden" data-category="core">
       <i class="fa-solid fa-image"></i>
       <h3>Traditional Photography</h3>
       <p>Classic posed shots for timeless memories.</p>
+      <button class="cta" onclick="openModal('modal3')">View Details</button>
     </div>
 
-    <div class="card">
-      <i class="fa-solid fa-calendar"></i>
-      <h3>Event Photography</h3>
-      <p>Corporate events covered professionally.</p>
-    </div>
-  
-  </div>
-</div>
-
-<!-- VIDEO -->
-<div class="section hidden">
-  <h2>🎥 Videography Services</h2>
-  <div class="grid">
-    <div class="card hidden">
+    <!-- VIDEOGRAPHY -->
+    <div class="card hidden" data-category="videography">
       <i class="fa-solid fa-film"></i>
       <h3>Cinematic Films</h3>
       <p>High-quality storytelling wedding films.</p>
+      <button class="cta" onclick="openModal('modal4')">View Details</button>
     </div>
-
-    <!-- PRE WEDDING -->
-    <div class="section hidden">
-      <h2>💍 Pre & Post Wedding</h2>
-      <div class="grid">
-       
-        <a href="pre wedding.html" class="card card-link">
-          <i class="fa-solid fa-heart"></i>
-          <h3>Pre Wedding Shoot</h3>
-          <p>Creative outdoor and location-based shoots.</p>
-        </a>
-
-        <div class="card hidden">
-          <i class="fa-solid fa-camera-retro"></i>
-          <h3>Post Wedding Shoot</h3>
-          <p>Romantic shoots after your big day.</p>
-        </div>
-
-        <div class="card hidden">
-          <i class="fa-solid fa-envelope"></i>
-          <h3>Save the Date</h3>
-          <p>Creative invitation videos for your wedding.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMMERCIAL -->
-    <div class="section hidden">
-      <h2>🧑‍💼 Commercial & Professional</h2>
-      <div class="grid">
-        
-        <a href="product.html" class="card card-link">
-          <i class="fa-solid fa-box"></i>
-          <h3>Product Photography</h3>
-          <p>Perfect for eCommerce & business branding.</p>
-        </a>
-
-        <a href="food.html" class="card card-link">
-          <i class="fa-solid fa-utensils"></i>
-          <h3>Food Photography</h3>
-          <p>Make your dishes look irresistible.</p>
-        </a>
-
-        <div class="card hidden">
-          <i class="fa-solid fa-user"></i>
-          <h3>Model Portfolio</h3>
-          <p>Professional fashion & portfolio shoots.</p>
-        </div>
-
-        <div class="card hidden">
-          <i class="fa-solid fa-briefcase"></i>
-          <h3>Corporate Headshots</h3>
-          <p>Professional images for your brand identity.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card hidden">
+    <div class="card hidden" data-category="videography">
       <i class="fa-solid fa-broadcast-tower"></i>
       <h3>Live Streaming</h3>
       <p>Stream your events live for family & friends.</p>
+      <button class="cta" onclick="openModal('modal5')">View Details</button>
     </div>
-  </div>
-</div>
 
-<!-- PRE WEDDING -->
-<div class="section hidden">
-  <h2>💍 Pre & Post Wedding</h2>
-  <div class="grid">
-    <div class="card hidden">
+    <!-- PRE & POST WEDDING -->
+    <div class="card hidden" data-category="prepost">
       <i class="fa-solid fa-heart"></i>
       <h3>Pre Wedding Shoot</h3>
       <p>Creative outdoor and location-based shoots.</p>
+      <button class="cta" onclick="openModal('modal6')">View Details</button>
     </div>
-
-    <div class="card hidden">
+    <div class="card hidden" data-category="prepost">
       <i class="fa-solid fa-camera-retro"></i>
       <h3>Post Wedding Shoot</h3>
       <p>Romantic shoots after your big day.</p>
+      <button class="cta" onclick="openModal('modal7')">View Details</button>
     </div>
-
-    <div class="card hidden">
+    <div class="card hidden" data-category="prepost">
       <i class="fa-solid fa-envelope"></i>
       <h3>Save the Date</h3>
       <p>Creative invitation videos for your wedding.</p>
+      <button class="cta" onclick="openModal('modal8')">View Details</button>
     </div>
-  </div>
-</div>
 
-<!-- COMMERCIAL -->
-<div class="section hidden">
-  <h2>🧑‍💼 Commercial & Professional</h2>
-  <div class="grid">
-    <div class="card hidden">
+    <!-- COMMERCIAL -->
+    <div class="card hidden" data-category="commercial">
       <i class="fa-solid fa-box"></i>
       <h3>Product Photography</h3>
       <p>Perfect for eCommerce & business branding.</p>
+      <button class="cta" onclick="openModal('modal9')">View Details</button>
     </div>
-
-    <div class="card hidden">
+    <div class="card hidden" data-category="commercial">
       <i class="fa-solid fa-utensils"></i>
       <h3>Food Photography</h3>
       <p>Make your dishes look irresistible.</p>
+      <button class="cta" onclick="openModal('modal10')">View Details</button>
     </div>
 
-    <div class="card hidden">
-      <i class="fa-solid fa-user"></i>
-      <h3>Model Portfolio</h3>
-      <p>Professional fashion & portfolio shoots.</p>
-    </div>
-
-    <div class="card hidden">
-      <i class="fa-solid fa-briefcase"></i>
-      <h3>Corporate Headshots</h3>
-      <p>Professional images for your brand identity.</p>
-    </div>
-  </div>
-</div>
-
-<!-- PERSONAL -->
-<div class="section hidden">
-  <h2>👨‍👩‍👧 Personal Shoots</h2>
-  <div class="grid">
-    <div class="card hidden">
+    <!-- PERSONAL -->
+    <div class="card hidden" data-category="personal">
       <i class="fa-solid fa-baby"></i>
       <h3>Maternity Shoot</h3>
       <p>Celebrate motherhood with elegant photos.</p>
+      <button class="cta" onclick="openModal('modal11')">View Details</button>
     </div>
 
-    <div class="card hidden">
-      <i class="fa-solid fa-child"></i>
-      <h3>Kids Photography</h3>
-      <p>Capture cute and joyful childhood moments.</p>
-    </div>
-
-    <div class="card hidden">
-      <i class="fa-solid fa-users"></i>
-      <h3>Family Portraits</h3>
-      <p>Timeless family memories captured perfectly.</p>
-    </div>
-
-    <div class="card hidden">
-      <i class="fa-solid fa-cake-candles"></i>
-      <h3>Birthday Shoots</h3>
-      <p>Make your celebrations unforgettable.</p>
-    </div>
-  </div>
-</div>
-
-<!-- EDITING -->
-<div class="section hidden">
-  <h2>🎨 Editing & Design</h2>
-  <div class="grid">
-    <div class="card hidden">
+    <!-- EDITING -->
+    <div class="card hidden" data-category="editing">
       <i class="fa-solid fa-pen-nib"></i>
       <h3>Photo Editing</h3>
       <p>Professional retouching & color grading.</p>
-    </div>
-
-    <div class="card hidden">
-      <i class="fa-solid fa-book"></i>
-      <h3>Album Designing</h3>
-      <p>Premium album layouts with creative designs.</p>
-    </div>
-
-    <div class="card hidden">
-      <i class="fa-solid fa-print"></i>
-      <h3>Printing & Frames</h3>
-      <p>High-quality prints and customized frames.</p>
+      <button class="cta" onclick="openModal('modal12')">View Details</button>
     </div>
   </div>
 </div>
 
+<!-- MODALS -->
+<!-- WEDDING PHOTOGRAPHY MODAL WITH GALLERY -->
+<div id="modal1" class="modal">
+  <div class="modal-content" style="max-width:900px;">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h3>Wedding Photography</h3>
+    <img id="mainImage" src="wedding pics/IMG_5432.JPG" style="width:100%;height:400px;object-fit:cover;border-radius:15px;margin-bottom:10px;">
+    <div style="text-align:center;margin-bottom:10px;">
+      <button onclick="prevImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">⬅</button>
+      <button onclick="nextImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">➡</button>
+    </div>
+    <div id="thumbContainer" style="display:flex;gap:10px;overflow-x:auto;"></div>
+    <p style="margin-top:10px;">Full coverage including engagement, reception & rituals.</p>
+  </div>
+</div>
+
+<!-- OTHER MODALS SAME AS OLD -->
+<div id="modal2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal2')">&times;</span><h3>Candid Photography</h3><img src="candid1.jpg"><p>Natural, emotional and unposed moments captured beautifully.</p></div></div>
+<div id="modal3" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal3')">&times;</span><h3>Traditional Photography</h3><img src="traditional1.jpg"><p>Classic posed shots for timeless memories.</p></div></div>
+<div id="modal4" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal4')">&times;</span><h3>Cinematic Films</h3><img src="film1.jpg"><p>High-quality storytelling wedding films.</p></div></div>
+<div id="modal5" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal5')">&times;</span><h3>Live Streaming</h3><img src="stream1.jpg"><p>Stream your events live for family & friends.</p></div></div>
+<div id="modal6" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal6')">&times;</span><h3>Pre Wedding Shoot</h3><img src="pre1.jpg"><p>Creative outdoor and location-based shoots.</p></div></div>
+<div id="modal7" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal7')">&times;</span><h3>Post Wedding Shoot</h3><img src="post1.jpg"><p>Romantic shoots after your big day.</p></div></div>
+<div id="modal8" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal8')">&times;</span><h3>Save the Date</h3><img src="save1.jpg"><p>Creative invitation videos for your wedding.</p></div></div>
+<div id="modal9" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal9')">&times;</span><h3>Product Photography</h3><img src="product1.jpg"><p>Perfect for eCommerce & business branding.</p></div></div>
+<div id="modal10" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal10')">&times;</span><h3>Food Photography</h3><img src="food1.jpg"><p>Make your dishes look irresistible.</p></div></div>
+<div id="modal11" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal11')">&times;</span><h3>Maternity Shoot</h3><img src="maternity1.jpg"><p>Celebrate motherhood with elegant photos.</p></div></div>
+<div id="modal12" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal12')">&times;</span><h3>Photo Editing</h3><img src="edit1.jpg"><p>Professional retouching & color grading.</p></div></div>
+
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+// Intersection Observer
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
     }
   });
 });
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
 
-document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+// Filter Buttons
+const filterBtns = document.querySelectorAll(".filters button");
+const cards = document.querySelectorAll(".grid .card");
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    let filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === "all" || card.dataset.category === filter) { 
+        card.style.display = "block"; 
+        setTimeout(() => card.classList.add("show"), 50); 
+      } else { 
+        card.classList.remove("show"); 
+        setTimeout(() => card.style.display = "none", 300);
+      }
+    });
+  });
+});
 
-// ✅ AUTO SCROLL
-let scrollAmount = 1.5; // pixels per step
-let scrollDelay = 30; // milliseconds
+// Modal Functions
+function openModal(id){ document.getElementById(id).style.display = "flex"; }
+function closeModal(id){ document.getElementById(id).style.display = "none"; }
+window.onclick = function(e){ if(e.target.classList.contains('modal')) e.target.style.display = "none"; }
 
-function autoScroll() {
-  window.scrollBy(0, scrollAmount);
-  if ((window.innerHeight + window.scrollY) < document.body.offsetHeight) {
-    setTimeout(autoScroll, scrollDelay);
+// WEDDING GALLERY SCRIPT
+const images = [
+  "wedding pics/IMG_5432.JPG","wedding pics/IMG_5433.JPG","wedding pics/IMG_5434.JPG",
+  "wedding pics/IMG_5435.JPG","wedding pics/IMG_5441.JPG","wedding pics/IMG_5442.JPG",
+  "wedding pics/IMG_5444.JPG","wedding pics/IMG_5445.JPG","wedding pics/IMG_5448.JPG",
+  "wedding pics/IMG_5450.JPG","wedding pics/IMG_5451.JPG","wedding pics/IMG_5454.JPG"
+];
+let current = 0;
+
+function loadGallery(){
+  let container = document.getElementById("thumbContainer");
+  container.innerHTML = "";
+  images.forEach((img, index) => {
+    let image = document.createElement("img");
+    image.src = img;
+    image.style.width = "80px"; 
+    image.style.height = "60px"; 
+    image.style.objectFit = "cover"; 
+    image.style.borderRadius = "10px"; 
+    image.style.cursor = "pointer"; 
+    image.style.opacity = "0.6";
+    image.onclick = () => { current = index; showImage(); }
+    container.appendChild(image);
+  });
+  showImage();
+}
+
+function showImage(){
+  document.getElementById("mainImage").src = images[current];
+  let thumbs = document.getElementById("thumbContainer").children;
+  for(let i=0; i<thumbs.length; i++){
+    thumbs[i].style.opacity = i === current ? "1" : "0.6";
   }
 }
 
-// Start scrolling automatically after 1 second
-setTimeout(autoScroll, 100);
-</script>
+function prevImage(){
+  current = (current - 1 + images.length) % images.length;
+  showImage();
+}
 
-</body>
-</html>
+function nextImage(){
+  current = (current + 1) % images.length;
+  showImage();
+}
+
+// Initialize gallery when modal opens
+document.querySelector(".cta").addEventListener("click", loadGallery);
+</script>
