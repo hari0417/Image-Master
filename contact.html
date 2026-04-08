@@ -19,6 +19,20 @@
       .logo { display: flex; align-items: center; gap: 10px; }
       .logo img { width: 40px; }
       .logo span { color: #ffd700; }
+      .logo {
+  display:flex; align-items:center; gap:12px;
+}
+
+.logo img {
+  width:auto;
+  max-height:25px;
+  border-radius: 25%;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
       .nav-center { display: flex; gap: 30px; }
       .nav-center a { text-decoration: none; color: #ddd; position: relative; transition: 0.3s; }
       .nav-center a:hover, .nav-center a.active { color: #ffd700; }
@@ -69,12 +83,12 @@
     <!-- NAVBAR -->
     <header class="navbar">
       <div class="logo">
-        <img src="image/logo2.png" />
+        <img src="logo.jpeg" />
         <h2>Image <span>Masterz</span></h2>
       </div>
       <div class="nav-center">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
+        <a href="services.html">Services</a>  
         <a href="packages.html">Packages</a>
         <a href="booking.html">Booking</a>
         <a href="#" class="active">Contact</a>
