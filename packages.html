@@ -80,7 +80,20 @@ body{
   transform:rotate(45deg);
   font-size:12px;
 }
+.logo {
+  display:flex; align-items:center; gap:12px;
+}
 
+.logo img {
+  width:auto;
+  max-height:25px;
+  border-radius: 25%;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
 /* TOP ROW */
 .top-row{
   display:flex;
@@ -187,7 +200,10 @@ body{
 <body>
 
 <header class="navbar">
-  <h2>Image <span>Masterz</span></h2>
+   <div class="logo">
+    <img src="logo.jpeg" alt="Image Masterz Logo">
+    <h2>Image <span>Masterz</span></h2>
+  </div>
   <div class="nav-center">
     <a href="index.html">Home</a>
     <a href="Services.html">Services</a>
@@ -301,9 +317,9 @@ body{
 <!-- PAYMENT -->
 <div class="payment">
 <h2>Payment Terms</h2>
-<p><b>20%</b> – Advance payment at the time of booking</p>
-<p><b>70%</b> – Payable on the day of the event</p>
-<p><b>10%</b> – Upon final album approval</p>
+<p><b style="color: #ffd700;">20%</b> – Advance payment at the time of booking</p>
+<p><b style="color: #ffd700;">70%</b> – Payable on the day of the event</p>
+<p><b style="color: #ffd700;">10%</b> – Upon final album approval</p>
 </div>
 
 </div>
