@@ -10,128 +10,153 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <style>
-      /* ===== RESET ===== */
       * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-      body { padding-top: 100px; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url(bg1.jpg); background-size: cover; background-position: center; color: white; }
 
-      /* ===== NAVBAR ===== */
-      .navbar { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; display: flex; justify-content: space-between; align-items: center; padding: 12px 40px; background: rgba(0,0,0,0.6); backdrop-filter: blur(20px); border-radius: 50px; border: 1px solid rgba(255,215,0,0.2); box-shadow: 0 0 20px rgba(255,215,0,0.2); z-index: 1000; }
-      .logo { display: flex; align-items: center; gap: 10px; }
-      .logo img { width: 40px; }
-      .logo span { color: #ffd700; }
-      .logo {
-  display:flex; align-items:center; gap:12px;
-}
+      body {
+        padding-top: 100px;
+        background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url(bg1.jpg);
+        background-size: cover;
+        background-position: center;
+        color: white;
+      }
 
-.logo img {
-  width:auto;
-  max-height:25px;
-  border-radius: 25%;
-  transition: transform 0.3s ease;
-}
+      .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 40px;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(20px);
+        border-radius: 50px;
+        border: 1px solid rgba(255,215,0,0.2);
+      }
 
-.logo img:hover {
-  transform: scale(1.1);
-}
+      .logo { display:flex; align-items:center; gap:12px; }
+      .logo img { max-height:25px; border-radius:25%; }
+
       .nav-center { display: flex; gap: 30px; }
-      .nav-center a { text-decoration: none; color: #ddd; position: relative; transition: 0.3s; }
-      .nav-center a:hover, .nav-center a.active { color: #ffd700; }
-      .nav-center a::after { content: ""; position: absolute; bottom: -6px; left: 0; width: 0%; height: 2px; background: linear-gradient(90deg,#ffd700,transparent); transition: 0.4s; }
-      .nav-center a:hover::after { width: 100%; }
+      .nav-center a { text-decoration: none; color: #ddd; }
+      .nav-center a.active, .nav-center a:hover { color: gold; }
 
-      /* ===== HERO ===== */
       .hero { text-align: center; margin-bottom: 40px; }
-      .hero h1 { font-size: 36px; background: linear-gradient(90deg,#ffd700,#c9a227); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      .hero h1 { font-size: 36px; color: gold; }
 
-      /* ===== GRID ===== */
-      .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+      }
 
-      /* ===== BOX ===== */
-      .box { width: 350px; padding: 25px; border-radius: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,215,0,0.2); box-shadow: 0 10px 25px rgba(0,0,0,0.6); transition: 0.3s; position: relative; }
-      .box:hover { transform: translateY(-5px) scale(1.02); }
+      .box {
+        width: 350px;
+        padding: 25px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,215,0,0.2);
+      }
 
-      /* ===== CONTACT INFO ===== */
-      .contact-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; font-size: 14px; }
-      .contact-item i { color: #ffd700; }
-      .social a { font-size: 22px; margin-right: 10px; color: white; transition: 0.3s; }
-      .social a:hover { color: #ffd700; transform: scale(1.2); }
+      .contact-item { margin: 10px 0; }
 
-      /* ===== FORM ===== */
-      .box input, .box textarea, .box select { width: 100%; margin-top: 5px; padding: 10px; border-radius: 10px; border: none; outline: none; background: rgba(255,255,255,0.08); color: white; font-family: 'Poppins'; transition: 0.3s; }
-      .box input:focus, .box textarea:focus, .box select:focus { background: rgba(255,255,255,0.15); }
+      .box input, .box textarea {
+        width: 100%;
+        margin-top: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background: rgba(255,255,255,0.08);
+        color: white;
+      }
 
-      .box button { width: 100%; padding: 12px; margin-top: 15px; border: none; border-radius: 25px; background: linear-gradient(45deg,#ffd700,#c9a227); color: black; font-weight: 600; cursor: pointer; transition: 0.3s; }
-      .box button:hover { transform: scale(1.05); }
+      .box button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 25px;
+        background: gold;
+        color: black;
+        font-weight: 600;
+        cursor: pointer;
+      }
 
-      /* ===== RATING ===== */
-      .rating i { font-size: 25px; color: #555; cursor: pointer; transition: 0.3s; }
-      .rating i.active { color: #ffd700; }
+      .rating i { font-size: 25px; color: #555; cursor: pointer; }
+      .rating i.active { color: gold; }
 
-      /* ===== MAP ===== */
-      .map { width: 90%; max-width: 1000px; margin: 40px auto 20px auto; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-      .map iframe { width: 100%; height: 300px; border: none; }
+      iframe {
+        border-radius: 15px;
+        margin-top: 10px;
+      }
 
-      /* ===== FOOTER ===== */
       .footer { text-align: center; margin-top: 40px; opacity: 0.7; }
-
-      /* ===== MEDIA ===== */
-      @media (max-width: 768px) { .grid { flex-direction: column; align-items: center; } .navbar { padding: 10px 20px; } }
     </style>
   </head>
 
   <body>
-    <!-- NAVBAR -->
+
     <header class="navbar">
       <div class="logo">
         <img src="logo.jpeg" />
-        <h2>Image <span>Masterz</span></h2>
+        <h2>Image <span style="color:gold;">Masterz</span></h2>
       </div>
+
       <div class="nav-center">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>  
+        <a href="services.html">Services</a>
         <a href="packages.html">Packages</a>
         <a href="booking.html">Booking</a>
         <a href="#" class="active">Contact</a>
       </div>
     </header>
 
-    <!-- HERO -->
     <div class="hero">
       <h1>Let’s Work Together 📸</h1>
-      <p>Reach out to us via message, WhatsApp, or leave a review!</p>
+      <p>Send message or leave review!</p>
     </div>
 
-    <!-- GRID -->
     <div class="grid">
-      <!-- CONTACT INFO -->
+
+      <!-- Contact -->
       <div class="box">
         <h2>Contact Info</h2>
-        <div class="contact-item"><i class="fa-solid fa-phone"></i> +91 9876543210</div>
-        <div class="contact-item"><i class="fa-solid fa-envelope"></i> mystudio@gmail.com</div>
-        <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Chennai, India</div>
-        <div class="social">
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        </div>
+        <div class="contact-item">📞 +91 9876543210</div>
+        <div class="contact-item">📧 mystudio@gmail.com</div>
+        <div class="contact-item">📍 Chennai</div>
       </div>
 
-      <!-- SEND MESSAGE -->
+      <!-- Map -->
+      <div class="box">
+        <h2>Our Location 📍</h2>
+        <iframe 
+          src="https://www.google.com/maps?q=Chennai&output=embed"
+          width="100%" 
+          height="250">
+        </iframe>
+      </div>
+
+      <!-- WhatsApp -->
       <div class="box">
         <h2>Send Message</h2>
         <form onsubmit="sendWhatsApp(); return false;">
           <input type="text" id="name" placeholder="Your Name" required />
           <input type="email" id="email" placeholder="Your Email" required />
           <input type="text" id="subject" placeholder="Subject" required />
-          <textarea id="message" placeholder="Your Message" rows="4"></textarea>
-          <button type="submit">📩 Send via WhatsApp</button>
+          <textarea id="message" placeholder="Your Message"></textarea>
+          <button type="submit">Send WhatsApp</button>
         </form>
       </div>
 
-      <!-- WRITE REVIEW -->
+      <!-- Review -->
       <div class="box">
         <h2>Write Review ⭐</h2>
+
         <input type="text" id="rname" placeholder="Your Name" />
+
         <div class="rating" id="rating">
           <i onclick="rate(1)" class="fa-solid fa-star"></i>
           <i onclick="rate(2)" class="fa-solid fa-star"></i>
@@ -139,34 +164,31 @@
           <i onclick="rate(4)" class="fa-solid fa-star"></i>
           <i onclick="rate(5)" class="fa-solid fa-star"></i>
         </div>
+
         <textarea id="rtext" placeholder="Your Review"></textarea>
+
         <button onclick="saveReview()">Submit Review</button>
       </div>
+
     </div>
 
-    <!-- MAP -->
-    <div class="map">
-      <iframe src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-    </div>
+    <footer class="footer">© 2026 Image Masterz</footer>
 
-    <!-- FOOTER -->
-    <footer class="footer">© 2026 Image Masterz | All Rights Reserved</footer>
-
-    <!-- SCRIPT -->
     <script>
-      /* ===== WHATSAPP MESSAGE ===== */
       function sendWhatsApp() {
         let name = document.getElementById("name").value;
         let email = document.getElementById("email").value;
         let subject = document.getElementById("subject").value;
         let message = document.getElementById("message").value;
-        let text = `Contact Request:\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+
+        let text = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
         let url = "https://wa.me/919876543210?text=" + encodeURIComponent(text);
+
         window.open(url, "_blank");
       }
 
-      /* ===== STAR RATING ===== */
       let ratingValue = 0;
+
       function rate(v) {
         ratingValue = v;
         let stars = document.querySelectorAll("#rating i");
@@ -176,13 +198,57 @@
       function saveReview() {
         let name = document.getElementById("rname").value;
         let text = document.getElementById("rtext").value;
-        if(ratingValue===0){ alert("Select star rating!"); return; }
-        let reviews = JSON.parse(localStorage.getItem("reviews")||"[]");
-        reviews.push({name:name,text:text,stars:ratingValue});
+
+        if (ratingValue === 0) {
+          alert("Select star rating!");
+          return;
+        }
+
+        if (!name || !text) {
+          alert("Fill all fields!");
+          return;
+        }
+
+        // Save locally
+        let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+        reviews.push({ name, text, stars: ratingValue });
         localStorage.setItem("reviews", JSON.stringify(reviews));
-        alert("Review Submitted!");
-        window.location.reload();
+
+        // Email template
+        let emailContent = `
+<h2 style="color:#ffd700;">⭐ New Review Received</h2>
+<p><strong>Name:</strong> ${name}</p>
+<p><strong>Rating:</strong> ${ratingValue} / 5</p>
+<p><strong>Review:</strong></p>
+<p style="background:#f5f5f5;padding:10px;border-radius:10px;color:black;">
+${text}
+</p>
+<hr>
+<p style="font-size:12px;color:gray;">Image Masterz Website</p>
+`;
+
+        let form = document.createElement("form");
+        form.action = "https://formsubmit.co/haribca40@gmail.com";
+        form.method = "POST";
+
+      form.innerHTML = `
+    <input type="hidden" name="_subject" value="New Review">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="index.html">
+
+    <input type="text" name="Name" value="${name}">
+    <input type="text" name="Rating" value="${ratingValue}/5">
+    <input type="text" name="Review" value="${text}">
+  `;
+
+        document.body.appendChild(form);
+
+        alert("Review submitted successfully!");
+
+        form.submit();
       }
     </script>
+
   </body>
 </html>

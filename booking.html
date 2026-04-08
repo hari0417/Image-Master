@@ -14,7 +14,6 @@ body{
   background-size:cover;
   color:white;
 }
-/* Navbar */
 .navbar{
   position:fixed;top:20px;left:50%;transform:translateX(-50%);
   width:90%;display:flex;justify-content:space-between;align-items:center;
@@ -28,182 +27,103 @@ body{
 .logo {
   display:flex; align-items:center; gap:12px;
 }
-
 .logo img {
   width:auto;
   max-height:25px;
   border-radius: 25%;
-  transition: transform 0.3s ease;
 }
-
-.logo img:hover {
-  transform: scale(1.1);
-}
-/* Main */
 .main{display:flex;min-height:100vh;flex-wrap:wrap;}
 .left{
-  flex:1;background:url("https://images.unsplash.com/photo-1522673607200-164d1b6ce486") center/cover;position:relative;
-}
-.left::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+  flex:1;background:url("https://images.unsplash.com/photo-1522673607200-164d1b6ce486") center/cover;
 }
 .right{
   flex:1;display:flex;justify-content:center;align-items:center;padding:20px;
 }
-
-/* Form */
 .form-container{
   width:100%;max-width:480px;padding:30px;border-radius:20px;
   background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);
   border:1px solid rgba(255,215,0,0.2);
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);
-  transition:0.4s;
 }
-.form-container:hover{transform:scale(1.02);}
-.form-container h2{text-align:center;margin-bottom:20px;
-  background:linear-gradient(90deg,#ffd700,#c9a227);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-
-/* Inputs */
 .input-group{margin-bottom:15px;}
 .input-group label{font-size:14px;color:#ccc;}
 .input-group input,.input-group textarea,.input-group select{
-  width:100%;margin-top:5px;padding:10px;border-radius:10px;border:none;outline:none;font-family:'Poppins';
+  width:100%;margin-top:5px;padding:10px;border-radius:10px;border:none;outline:none;
 }
-
-/* Button */
 button{
   width:100%;padding:12px;border-radius:25px;border:none;
   background:linear-gradient(45deg,#ffd700,#c9a227);color:black;font-weight:600;cursor:pointer;
-}
-button:hover{transform:scale(1.05);}
-
-/* Payment Info */
-.payment-info{
-  margin-top:20px;padding:15px;background:rgba(255,255,255,0.05);border-radius:15px;
-  border:1px solid rgba(255,215,0,0.2);font-size:14px;color:#fff;
-}
-
-/* Mobile */
-@media(max-width:900px){
-  .main{flex-direction:column;}
-  .left{height:250px;}
-  .navbar{padding:10px 20px;}
 }
 </style>
 </head>
 
 <body>
 
-<header class="navbar">
-  <div class="logo">
-    <img src="logo.jpeg" />
-    <h2>Image <span>Masterz</span></h2>
-  </div>
-  <div class="nav-center">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="packages.html">Packages</a>
-    <a href="#" class="active">Booking</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</header>
-
+ <header class="navbar">
+      <div class="logo">
+        <img src="logo.jpeg" />
+        <h2>Image <span>Masterz</span></h2>
+      </div>
+      <div class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>  
+        <a href="packages.html">Packages</a>
+        <a href="#" class="active">Booking</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </header>
 <div class="main">
   <div class="left"></div>
 
   <div class="right">
     <div class="form-container">
-      <h2>📸 Book Your Package</h2>
-      <form id="bookingForm" onsubmit="return sendWhatsApp();">
+      <h2>📩 Book Your Package</h2>
+
+      <!-- EMAIL FORM -->
+      <form action="https://formsubmit.co/haribca40@gmail.com" method="POST">
+
+        <input type="hidden" name="_subject" value="New Booking Request">
+        <input type="hidden" name="_captcha" value="false">
+
         <div class="input-group">
           <label>Name</label>
-          <input type="text" id="name" required />
+          <input type="text" name="Name" required />
         </div>
 
         <div class="input-group">
           <label>Date</label>
-          <input type="date" id="date" required />
+          <input type="date" name="Date" required />
         </div>
 
         <div class="input-group">
           <label>Package</label>
-          <select id="package">
-            <option value="">--Select Package--</option>
+          <select name="Package" required>
             <option>Basic</option>
             <option>Standard</option>
             <option>Premium</option>
             <option>Elite</option>
-            <option>Others</option>
           </select>
         </div>
 
         <div class="input-group">
           <label>Event Type</label>
-          <select id="event">
-            <option value="">--Select Event--</option>
+          <select name="Event" required>
             <option>Wedding</option>
             <option>Birthday</option>
             <option>Corporate</option>
-            <option>Other</option>
           </select>
         </div>
 
         <div class="input-group">
           <label>Message</label>
-          <textarea id="message" placeholder="Any special requirements?"></textarea>
+          <textarea name="Message"></textarea>
         </div>
 
-        <button type="submit">🚀 Book via WhatsApp</button>
+        <button type="submit">🚀 Submit Booking</button>
 
-        <div class="payment-info">
-          <b style="color: #c9a227;">Payment Terms:</b><br>
-          20% - Booking | 70% - Event Day | 10% - Album Approval
-        </div>
       </form>
     </div>
   </div>
 </div>
-
-<script>
-  // Auto-fill package if passed via URL
-  window.onload = function() {
-    const params = new URLSearchParams(window.location.search);
-    const pkg = params.get("package");
-    if(pkg){
-      document.getElementById("package").value = pkg;
-    }
-  };
-
-  function sendWhatsApp(){
-    const name = document.getElementById("name").value;
-    const date = document.getElementById("date").value;
-    const pack = document.getElementById("package").value;
-    const event = document.getElementById("event").value;
-    const message = document.getElementById("message").value;
-
-    if(!name || !date || !pack || !event){
-      alert("Please fill all required fields!");
-      return false;
-    }
-
-    const text = `Booking Request:
-Name: ${name}
-Date: ${date}
-Package: ${pack}
-Event: ${event}
-Message: ${message}`;
-
-    const url = "https://wa.me/919876543210?text=" + encodeURIComponent(text);
-    
-    if(confirm("You are about to open WhatsApp with this booking request.")){
-      window.open(url, "_blank");
-    }
-    return false;
-  }
-</script>
 
 </body>
 </html>
