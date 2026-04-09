@@ -47,10 +47,7 @@ img {max-width:100%; display:block;}
   transition: transform 0.3s ease;
 }
 
-.logo img:hover {
-  transform: scale(1.1);
-}
-
+.logo img:hover { transform: scale(1.1); }
 .logo h2 {color:#fff; font-weight:700;}
 .logo span {color:#E6C200;}
 
@@ -119,6 +116,31 @@ img {max-width:100%; display:block;}
 ::-webkit-scrollbar {height:8px; width:8px;}
 ::-webkit-scrollbar-track {background:transparent;}
 ::-webkit-scrollbar-thumb {background:#E6C200; border-radius:4px;}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:768px) {
+  .hero-text h1 { font-size:32px; line-height:38px; }
+  .hero-text p { font-size:14px; }
+  .hero-text .btn { padding:10px 20px; font-size:14px; }
+
+  .navbar { width:95%; padding:10px 15px; border-radius:25px; }
+  .nav-menu { gap:15px; flex-wrap: wrap; justify-content:center; }
+  .nav-btn { padding:8px 15px; font-size:14px; }
+
+  .section { padding:60px 15px; }
+  .grid { grid-template-columns:1fr; gap:20px; }
+
+  .review-cards { flex-wrap: nowrap; gap:15px; }
+  .review-card { min-width:250px; }
+}
+
+@media (max-width:480px) {
+  .hero-text h1 { font-size:28px; }
+  .hero-text p { font-size:13px; }
+  .hero-text .btn { padding:8px 18px; }
+  .grid { gap:15px; }
+  .review-card { min-width:220px; padding:15px; }
+}
 </style>
 </head>
 <body>
@@ -131,7 +153,7 @@ img {max-width:100%; display:block;}
   <nav class="nav-menu">
     <a href="#" class="active">Home</a>
     <a href="Services.html">Services</a>
-     <a href="packages.html">Packages</a>
+    <a href="packages.html">Packages</a>
     <a href="booking.html">Booking</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -175,17 +197,6 @@ img {max-width:100%; display:block;}
   </div>
 </div>
 </section>
-
-<!-- <section class="section">
-<h2>Featured Works</h2>
-<div class="gallery" id="gallery">
-  <img src="wedding1.jpg" alt="Wedding">
-  <img src="wedding2.jpg" alt="Wedding">
-  <img src="prewedding1.jpg" alt="Pre-Wedding">
-  <img src="product1.jpg" alt="Product">
-  <img src="maternity1.jpg" alt="Maternity">
-</div>
-</section> -->
 
 <div id="lightbox">
   <span class="lightbox-close">&times;</span>
