@@ -34,6 +34,7 @@ img {max-width:100%; display:block;}
   align-items:center;
   z-index:1000;
   box-shadow:0 0 20px rgba(230,194,0,0.3);
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -51,7 +52,7 @@ img {max-width:100%; display:block;}
 .logo h2 {color:#fff; font-weight:700;}
 .logo span {color:#E6C200;}
 
-.nav-menu {display:flex; gap:25px;}
+.nav-menu {display:flex; gap:25px; flex-wrap: wrap;}
 .nav-menu a {color:#ddd; font-weight:500; transition:0.3s;}
 .nav-menu a:hover, .nav-menu a.active {color:#E6C200;}
 .nav-btn {padding:10px 25px; border-radius:30px; background:#E6C200; color:#000; font-weight:600; transition:0.3s;}
@@ -59,10 +60,11 @@ img {max-width:100%; display:block;}
 
 /* HERO */
 .hero {
-  height:100vh;
+  min-height:100vh;
   position:relative;
   display:flex; align-items:center; justify-content:center;
   background:url('bg1.jpg') center/cover no-repeat;
+  padding:20px;
 }
 .hero::before {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.7);}
 .hero-text {position:relative; text-align:center;}
@@ -104,7 +106,7 @@ img {max-width:100%; display:block;}
 .review-section {padding:100px 20px; background:#111; text-align:center;}
 .review-section h2 {color:#E6C200; margin-bottom:40px;}
 .review-cards {display:flex; overflow-x:auto; gap:25px; padding-bottom:10px;}
-.review-card {min-width:280px; padding:20px; border-radius:20px; background:#222; border:1px solid rgba(230,194,0,0.2);}
+.review-card {min-width:280px; padding:20px; border-radius:20px; background:#222; border:1px solid rgba(230,194,0.2);}
 .review-card h4 {margin-top:10px; color:#E6C200;}
 .review-card p {color:#ccc; margin-top:10px;}
 .review-card .stars {color:#E6C200; font-size:1.1rem;}
@@ -123,9 +125,9 @@ img {max-width:100%; display:block;}
   .hero-text p { font-size:14px; }
   .hero-text .btn { padding:10px 20px; font-size:14px; }
 
-  .navbar { width:95%; padding:10px 15px; border-radius:25px; }
+  .navbar { width:95%; padding:10px 15px; border-radius:25px; flex-direction:column; gap:10px; }
   .nav-menu { gap:15px; flex-wrap: wrap; justify-content:center; }
-  .nav-btn { padding:8px 15px; font-size:14px; }
+  .nav-btn { padding:8px 15px; font-size:14px; width:100%; text-align:center; }
 
   .section { padding:60px 15px; }
   .grid { grid-template-columns:1fr; gap:20px; }
@@ -135,11 +137,12 @@ img {max-width:100%; display:block;}
 }
 
 @media (max-width:480px) {
-  .hero-text h1 { font-size:28px; }
-  .hero-text p { font-size:13px; }
-  .hero-text .btn { padding:8px 18px; }
+  .hero-text h1 { font-size:26px; }
+  .hero-text p { font-size:12px; }
+  .hero-text .btn { padding:8px 15px; font-size:12px; }
   .grid { gap:15px; }
-  .review-card { min-width:220px; padding:15px; }
+  .review-card { min-width:200px; padding:15px; }
+  .nav-menu { flex-direction:column; gap:10px; }
 }
 </style>
 </head>
