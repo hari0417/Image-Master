@@ -141,7 +141,7 @@ body {padding-top:100px; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,
     </div>
     <div class="card hidden" data-category="prepost">
       <i class="fa-solid fa-camera-retro"></i>
-      <h3>Post Wedding Shoot</h3>
+      <h3> Wedding Shorts</h3>
       <p>Romantic shoots after your big day.</p>
       <button class="cta" onclick="openModal('modal7')">View Details</button>
     </div>
@@ -190,16 +190,110 @@ body {padding-top:100px; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,
   <div class="modal-content" style="max-width:900px;">
     <span class="close" onclick="closeModal('modal1')">&times;</span>
     <h3>Wedding Photography</h3>
-    <img id="mainImage" src="wedding pics/IMG_5432.JPG" style="width:100%;height:400px;object-fit:cover;border-radius:15px;margin-bottom:10px;">
+    <img id="mainImage" src="wedding pics/IMG_5432.JPG" style="
+   width:100%;
+   height:400px;
+   object-fit:contain;
+   background:black;
+   border-radius:15px;">
     <div style="text-align:center;margin-bottom:10px;">
       <button onclick="prevImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">⬅</button>
       <button onclick="nextImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">➡</button>
     </div>
     <div id="thumbContainer" style="display:flex;gap:10px;overflow-x:auto;"></div>
-    <p style="margin-top:10px;">Full coverage including engagement, reception & rituals.</p>
+   
+  </div>
+</div>
+<!--Food-->
+<div id="modal10" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal10')">&times;</span>
+    <h3>Food Photography</h3>
+
+    <img id="foodMain" style="
+   width:100%;
+   height:400px;
+   object-fit:contain;
+   background:black;
+   border-radius:15px;">
+
+    <div style="text-align:center;margin-bottom:10px;">
+      <button onclick="prevFoodImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">⬅</button>
+      <button onclick="nextFoodImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">➡</button>
+    </div>
+
+    <div id="foodThumbs" style="display:flex;gap:10px;overflow-x:auto;"></div>
+  </div>
+</div>
+<!--Candid-->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h3>Candid Photography</h3>
+
+    <img id="candidMain" style="
+   width:100%;
+   height:400px;
+   object-fit:contain;
+   background:black;
+   border-radius:15px;">
+
+    <div style="text-align:center;margin-bottom:10px;">
+      <button onclick="prevCandidImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">⬅</button>
+      <button onclick="nextCandidImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">➡</button>
+    </div>
+
+    <div id="candidThumbs" style="display:flex;gap:10px;overflow-x:auto;"></div>
   </div>
 </div>
 
+<!-- PRE WEDDING MODAL -->
+<div id="modal6" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal6')">&times;</span>
+    <h3>Pre Wedding Shoot</h3>
+
+    <img id="preMain" style="
+      width:100%;
+      height:400px;
+      object-fit:contain;
+      background:black;
+      border-radius:15px;
+    ">
+
+    <div style="text-align:center;margin-bottom:10px;">
+      <button onclick="prevPreImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">⬅</button>
+      <button onclick="nextPreImage()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">➡</button>
+    </div>
+
+    <div id="preThumbs" style="display:flex;gap:10px;overflow-x:auto;"></div>
+  </div>
+</div>
+
+<!-- WEDDING SHORTS VIDEO MODAL -->
+<div id="modal7" class="modal">
+  <div class="modal-content" style="max-width:900px;">
+    <span class="close" onclick="closeModal('modal7')">&times;</span>
+    <h3>Wedding Shorts</h3>
+
+    <video id="shortMain" controls autoplay style="
+      width:100%;
+      height:400px;
+      object-fit:contain;
+      background:black;
+      border-radius:15px;"
+      >
+
+    </video>
+
+    <div style="text-align:center;margin-bottom:10px;">
+      <button onclick="prevShortVideo()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">⬅</button>
+      <button onclick="nextShortVideo()" style="padding:8px 15px;border:none;border-radius:10px;background:gold;">➡</button>
+    </div>
+
+    <div id="shortThumbs" style="display:flex;gap:10px;overflow-x:auto;"></div>
+  </div>
+</div>
 <!-- OTHER MODALS SAME AS OLD -->
 <div id="modal2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal2')">&times;</span><h3>Candid Photography</h3><img src="candid1.jpg"><p>Natural, emotional and unposed moments captured beautifully.</p></div></div>
 <div id="modal3" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal3')">&times;</span><h3>Traditional Photography</h3><img src="traditional1.jpg"><p>Classic posed shots for timeless memories.</p></div></div>
@@ -296,4 +390,243 @@ function nextImage(){
 
 // Initialize gallery when modal opens
 document.querySelector(".cta").addEventListener("click", loadGallery);
+// === FOOD GALLERY ===
+const foodImages=[
+"food pics/1763474540733.jpeg","food pics/1763474650133.jpeg","food pics/1763474660912.jpeg","food pics/1763474667482.jpeg",
+"food pics/1763474676745.jpeg","food pics/1763474682539.jpeg","food pics/1763474686522.jpeg","food pics/1763474697692.jpeg",
+"food pics/1763476395319.jpeg","food pics/1763476400433.jpeg"
+];
+let foodCurrent=0;
+
+function loadFoodGallery(){
+  let c=document.getElementById("foodThumbs");
+  c.innerHTML="";
+  foodImages.forEach((img,i)=>{
+    let t=document.createElement("img");
+    t.src=img; t.style.width="80px"; t.style.height="60px";
+    t.style.objectFit="cover"; t.style.borderRadius="10px";
+    t.style.opacity="0.6"; t.style.cursor="pointer";
+    t.onclick=()=>{foodCurrent=i; showFoodImage();}
+    c.appendChild(t);
+  });
+  showFoodImage();
+}
+function showFoodImage(){
+  document.getElementById("foodMain").src=foodImages[foodCurrent];
+  let t=document.getElementById("foodThumbs").children;
+  for(let i=0;i<t.length;i++){ t[i].style.opacity=i===foodCurrent?"1":"0.6"; }
+}
+function prevFoodImage(){ foodCurrent=(foodCurrent-1+foodImages.length)%foodImages.length; showFoodImage(); }
+function nextFoodImage(){ foodCurrent=(foodCurrent+1)%foodImages.length; showFoodImage(); }
+function openModal(id){
+  document.getElementById(id).style.display = "flex";
+  
+  if(id === "modal1") loadGallery();        // Wedding
+  if(id === "modal10") loadFoodGallery();   // Food
+}
+// === CANDID GALLERY ===
+const candidImages = [
+  "candid/pexels-abhishek-mishra-277771722-29760085.jpg",
+  "candid/pexels-anntarazevich-5119628.jpg",
+  "candid/pexels-sayoni-manna-2152229495-33051754.jpg",
+  "candid/pexels-shootsaga-30902373.jpg"
+];
+
+let candidCurrent = 0;
+function loadCandidGallery(){
+  let c = document.getElementById("candidThumbs");
+  c.innerHTML = "";
+
+  candidImages.forEach((img, i) => {
+    let t = document.createElement("img");
+    t.src = img;
+    t.style.width = "80px";
+    t.style.height = "60px";
+    t.style.objectFit = "cover";
+    t.style.borderRadius = "10px";
+    t.style.opacity = "0.6";
+    t.style.cursor = "pointer";
+    t.onclick = () => { candidCurrent = i; showCandidImage(); }
+    c.appendChild(t);
+  });
+
+  showCandidImage();
+}
+
+function showCandidImage(){
+  document.getElementById("candidMain").src = candidImages[candidCurrent];
+  
+  let t = document.getElementById("candidThumbs").children;
+  for(let i = 0; i < t.length; i++){
+    t[i].style.opacity = i === candidCurrent ? "1" : "0.6";
+  }
+}
+
+function prevCandidImage(){
+  candidCurrent = (candidCurrent - 1 + candidImages.length) % candidImages.length;
+  showCandidImage();
+}
+
+function nextCandidImage(){
+  candidCurrent = (candidCurrent + 1) % candidImages.length;
+  showCandidImage();
+}
+function openModal(id){
+  document.getElementById(id).style.display = "flex";
+
+  if(id === "modal1") loadGallery();           // Wedding
+  if(id === "modal10") loadFoodGallery();      // Food
+  if(id === "modal2") loadCandidGallery();     // Candid
+}
+//pre wedding
+const preImages = [
+  "pre wedding pic/0.jpg","pre wedding pic/1.jpg","pre wedding pic/10.jpg","pre wedding pic/11.jpg","pre wedding pic/12.jpg",
+  "pre wedding pic/13.jpg","pre wedding pic/2.jpg","pre wedding pic/3.jpg","pre wedding pic/4.jpg","pre wedding pic/5.jpg",
+  "pre wedding pic/6.jpg","pre wedding pic/7.jpg","pre wedding pic/8.jpg","pre wedding pic/9.jpg","pre wedding pic/DSC03047 01.jpg",
+  "pre wedding pic/DSC07885 01.jpg","pre wedding pic/DSC07893 copy.jpg","pre wedding pic/DSC07925 01.jpg","pre wedding pic/DSC07927 copy.jpg",
+  "pre wedding pic/DSC08789 copy.jpg","pre wedding pic/DSC08792 copy.jpg","pre wedding pic/DSC08863 copy.jpg","pre wedding pic/image_masterz_1763475486057 (1).jpeg",
+  "pre wedding pic/image_masterz_1763475489644.jpeg","pre wedding pic/image_masterz_1763475490028.jpeg",
+  "pre wedding pic/post 00.jpg","pre wedding pic/post 01.jpg","pre wedding pic/post 03.jpg","pre wedding pic/post 04.jpg"
+  
+];
+
+let preCurrent = 0;
+function loadPreGallery() {
+  let c = document.getElementById("preThumbs");
+  c.innerHTML = "";
+
+  preImages.forEach((img, i) => {
+    let t = document.createElement("img");
+    t.src = img;
+    t.style.width = "80px";
+    t.style.height = "60px";
+    t.style.objectFit = "cover";
+    t.style.borderRadius = "10px";
+    t.style.opacity = "0.6";
+    t.style.cursor = "pointer";
+    t.onclick = () => { preCurrent = i; showPreImage(); }
+    c.appendChild(t);
+  });
+
+  showPreImage();
+}
+
+function showPreImage() {
+  document.getElementById("preMain").src = preImages[preCurrent];
+  
+  let t = document.getElementById("preThumbs").children;
+  for (let i = 0; i < t.length; i++) {
+    t[i].style.opacity = i === preCurrent ? "1" : "0.6";
+  }
+}
+
+function prevPreImage() {
+  preCurrent = (preCurrent - 1 + preImages.length) % preImages.length;
+  showPreImage();
+}
+
+function nextPreImage() {
+  preCurrent = (preCurrent + 1) % preImages.length;
+  showPreImage();
+}
+function openModal(id){
+  document.getElementById(id).style.display = "flex";
+
+  if(id === "modal1") loadGallery();        // Wedding
+  if(id === "modal10") loadFoodGallery();   // Food
+  if(id === "modal2") loadCandidGallery();  // Candid
+  if(id === "modal6") loadPreGallery();     // Pre Wedding  ✅ ADD THIS
+}
+// === WEDDING SHORTS VIDEO GALLERY ===
+const shortVideos = [
+  "wedding video/short1.mp4"
+];
+
+let shortCurrent = 0;
+
+function loadShortsGallery() {
+  let c = document.getElementById("shortThumbs");
+  c.innerHTML = "";
+
+  shortVideos.forEach((video, i) => {
+    let t = document.createElement("video");
+    t.src = video;
+    t.muted = true;
+    t.style.width = "80px";
+    t.style.height = "60px";
+    t.style.objectFit = "cover";
+    t.style.borderRadius = "10px";
+    t.style.opacity = "0.6";
+    t.style.cursor = "pointer";
+
+    t.onclick = () => {
+      shortCurrent = i;
+      showShortVideo();
+    };
+
+    c.appendChild(t);
+  });
+
+  showShortVideo();
+}
+
+function showShortVideo() {
+  let videoPlayer = document.getElementById("shortMain");
+  videoPlayer.src = shortVideos[shortCurrent];
+  videoPlayer.load();      // important
+  videoPlayer.play();      // start playing
+
+  let t = document.getElementById("shortThumbs").children;
+  for (let i = 0; i < t.length; i++) {
+    t[i].style.opacity = i === shortCurrent ? "1" : "0.6";
+  }
+}
+
+function prevShortVideo() {
+  shortCurrent = (shortCurrent - 1 + shortVideos.length) % shortVideos.length;
+  showShortVideo();
+}
+
+function nextShortVideo() {
+  shortCurrent = (shortCurrent + 1) % shortVideos.length;
+  showShortVideo();
+}
+
+function openModal(id){
+  document.getElementById(id).style.display = "flex";
+
+  if(id === "modal7") loadShortsGallery();
+}
+// Auto Rotate Video Based on Orientation
+function autoRotateVideo(videoElement) {
+    videoElement.onloadedmetadata = function () {
+        const w = videoElement.videoWidth;
+        const h = videoElement.videoHeight;
+
+        // Portrait Video → Rotate 90deg
+        if (h > w) {
+            videoElement.style.transform = "rotate(90deg)";
+            videoElement.style.transformOrigin = "center center";
+            videoElement.style.width = "auto";
+            videoElement.style.height = "100%";
+            videoElement.style.maxHeight = "400px";
+        } 
+        // Landscape Video → No Rotation
+        else {
+            videoElement.style.transform = "rotate(0deg)";
+            videoElement.style.width = "100%";
+            videoElement.style.height = "400px";
+        }
+    };
+}
+
+function openModal(id){
+  document.getElementById(id).style.display = "flex";
+
+  if(id === "modal1") loadGallery();        // Wedding
+  if(id === "modal10") loadFoodGallery();   // Food
+  if(id === "modal2") loadCandidGallery();  // Candid
+  if(id === "modal6") loadPreGallery();     // Pre Wedding
+  if(id === "modal7") loadShortsGallery();  // Wedding Shorts (Video)
+}
 </script>
