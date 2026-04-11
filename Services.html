@@ -67,6 +67,106 @@ body {padding-top:100px; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,
 
 /* MOBILE */
 @media (max-width:768px){.navbar{padding:10px 20px;}.grid{grid-template-columns:1fr;}}
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 768px){
+
+  body{
+    padding-top:80px;
+  }
+
+  /* NAVBAR */
+  .navbar{
+    flex-direction: column;
+    gap:10px;
+    padding:12px;
+    border-radius:20px;
+  }
+
+  .nav-center{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:15px;
+  }
+
+  .nav-center a{
+    font-size:14px;
+  }
+
+  /* LOGO */
+  .logo h2{
+    font-size:18px;
+  }
+
+  /* SECTION */
+  .section{
+    padding:40px 15px;
+  }
+
+  .section h2{
+    font-size:1.4rem;
+  }
+
+  /* FILTER BUTTONS */
+  .filters{
+    gap:10px;
+  }
+
+  .filters button{
+    padding:8px 15px;
+    font-size:13px;
+  }
+
+  /* GRID */
+  .grid{
+    grid-template-columns: 1fr;
+    gap:20px;
+  }
+
+  /* CARD */
+  .card{
+    padding:20px;
+  }
+
+  .card h3{
+    font-size:1.1rem;
+  }
+
+  .card p{
+    font-size:0.9rem;
+  }
+
+  /* MODAL */
+  .modal-content{
+    padding:15px;
+  }
+
+  .modal-content img,
+  #mainImage,
+  #foodMain,
+  #candidMain,
+  #preMain{
+    height:250px !important;
+  }
+
+  /* VIDEO */
+  #shortMain{
+    height:250px !important;
+  }
+
+  /* THUMBNAILS */
+  #thumbContainer img,
+  #foodThumbs img,
+  #candidThumbs img,
+  #preThumbs img{
+    width:60px;
+    height:50px;
+  }
+
+  /* BUTTONS */
+  button{
+    font-size:14px;
+  }
+}
 </style>
 </head>
 
