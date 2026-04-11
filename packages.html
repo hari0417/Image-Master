@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Packages</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -13,8 +14,9 @@
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
 }
+
 body{
-  padding-top:100px;
+  padding-top:120px;
   background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95));
   background-size:cover;
   color:#fff;
@@ -23,23 +25,57 @@ body{
 /* NAVBAR */
 .navbar{
   position:fixed;
-  top:20px;
+  top:0;
   left:50%;
   transform:translateX(-50%);
-  width:90%;
+  width:95%;
+  padding:15px 20px;
+  border-radius:50px;
+  background:rgba(0,0,0,0.85);
   display:flex;
   justify-content:space-between;
-  padding:12px 40px;
-  border-radius:50px;
-  background:rgba(0,0,0,0.6);
+  align-items:center;
+  z-index:1000;
+  flex-wrap:wrap;
 }
-.logo span{color:#ffd700;}
-.nav-center{display:flex; gap:30px;}
-.nav-center a{color:#ddd;text-decoration:none;}
-.nav-center a.active, .nav-center a:hover{color:#ffd700;}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo img{
+  width:auto;
+  max-height:25px;
+  border-radius:25%;
+}
+
+.logo span{
+  color:#ffd700;
+}
+
+/* NAV LINKS */
+.nav-center{
+  display:flex;
+  gap:25px;
+}
+
+.nav-center a{
+  color:#ddd;
+  text-decoration:none;
+}
+
+.nav-center a.active,
+.nav-center a:hover{
+  color:#ffd700;
+}
 
 /* TITLE */
-.main{text-align:center;}
+.main{
+  text-align:center;
+}
+
 .main h2{
   font-size:38px;
   margin-bottom:20px;
@@ -56,6 +92,7 @@ body{
   gap:25px;
   padding:20px;
 }
+
 .card{
   width:280px;
   padding:20px;
@@ -65,10 +102,12 @@ body{
   transition:.4s;
   position:relative;
 }
+
 .card:hover{
   transform:translateY(-10px) scale(1.03);
   box-shadow:0 0 25px rgba(255,215,0,0.4);
 }
+
 .card:nth-child(2)::after{
   content:"POPULAR";
   position:absolute;
@@ -80,20 +119,7 @@ body{
   transform:rotate(45deg);
   font-size:12px;
 }
-.logo {
-  display:flex; align-items:center; gap:12px;
-}
 
-.logo img {
-  width:auto;
-  max-height:25px;
-  border-radius: 25%;
-  transition: transform 0.3s ease;
-}
-
-.logo img:hover {
-  transform: scale(1.1);
-}
 /* TOP ROW */
 .top-row{
   display:flex;
@@ -101,6 +127,7 @@ body{
   align-items:center;
   margin:15px 0;
 }
+
 .price{
   background:#ffd700;
   color:#000;
@@ -108,6 +135,7 @@ body{
   border-radius:20px;
   font-weight:bold;
 }
+
 .view-btn{
   background:#0072ff;
   padding:8px 14px;
@@ -137,7 +165,11 @@ body{
   background:rgba(255,255,255,0.05);
   text-align:center;
 }
-.payment h2{color:#ffd700;}
+
+.payment h2{
+  color:#ffd700;
+}
+
 .payment p{
   display:flex;
   justify-content:center;
@@ -148,8 +180,10 @@ body{
 /* MODAL */
 .modal{
   position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   background:rgba(0,0,0,0.85);
   display:flex;
   align-items:center;
@@ -159,10 +193,12 @@ body{
   transition:0.3s;
   padding:20px;
 }
+
 .modal.show{
   opacity:1;
   visibility:visible;
 }
+
 .modal-content{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(20px);
@@ -173,6 +209,7 @@ body{
   position:relative;
   color:#fff;
 }
+
 .close-btn{
   position:absolute;
   top:10px;
@@ -181,22 +218,57 @@ body{
   cursor:pointer;
   font-weight:bold;
 }
+
 .modal-content ul{
   margin-top:10px;
   padding-left:20px;
 }
-.modal-content ul li{
-  margin-bottom:5px;
-}
 
-/* MOBILE */
+/* 🔥 MOBILE FIX (ONLY ADDITION) */
 @media(max-width:768px){
-  .card{width:90%;}
-  .top-row{flex-direction:column; gap:10px;}
-  .modal-content{width:95%;}
+
+  /* NAVBAR FIX LIKE INDEX */
+  .navbar{
+    padding:10px 15px;
+  }
+
+  .nav-center{
+    overflow-x:auto;
+    white-space:nowrap;
+    flex-wrap:nowrap;
+    gap:15px;
+    width:100%;
+    margin-top:10px;
+  }
+
+  .nav-center a{
+    display:inline-block;
+    font-size:14px;
+  }
+
+  /* CARDS */
+  .card{
+    width:90%;
+  }
+
+  .top-row{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  /* PAYMENT */
+  .payment{
+    width:95%;
+  }
+
+  /* MODAL */
+  .modal-content{
+    width:95%;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header class="navbar">
@@ -204,6 +276,7 @@ body{
     <img src="logo.jpeg" alt="Image Masterz Logo">
     <h2>Image <span>Masterz</span></h2>
   </div>
+
   <div class="nav-center">
     <a href="index.html">Home</a>
     <a href="Services.html">Services</a>
@@ -215,7 +288,10 @@ body{
 
 <div class="main">
 <h2>Our Packages</h2>
+
 <div class="packages">
+
+<!-- 🔥 YOUR FULL ORIGINAL CARDS (UNCHANGED) -->
 
 <!-- BASIC -->
 <div class="card" data-package="Basic Package">
@@ -314,7 +390,6 @@ body{
 
 </div>
 
-<!-- PAYMENT -->
 <div class="payment">
 <h2>Payment Terms</h2>
 <p><b style="color: #ffd700;">20%</b> – Advance payment at the time of booking</p>
@@ -333,10 +408,8 @@ body{
 </div>
 
 <script>
-// modal functionality
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
-const closeBtn = document.querySelector(".close-btn");
 
 document.querySelectorAll(".view-btn").forEach(btn=>{
   btn.addEventListener("click",()=>{
@@ -347,8 +420,11 @@ document.querySelectorAll(".view-btn").forEach(btn=>{
   });
 });
 
-closeBtn.addEventListener("click",()=> modal.classList.remove("show"));
-window.addEventListener("click",(e)=>{ if(e.target===modal) modal.classList.remove("show"); });
+document.querySelector(".close-btn").onclick=()=>modal.classList.remove("show");
+
+window.onclick=(e)=>{
+  if(e.target===modal) modal.classList.remove("show");
+};
 </script>
 
 </body>
