@@ -1,237 +1,328 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Contact | Image Masterz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8" />
+<title>Contact | Image Masterz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+<style>
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-      body {
-        padding-top: 100px;
-        background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url(bg1.jpg);
-        background-size: cover;
-        background-position: center;
-        color: white;
-      }
+body{
+  padding-top:120px;
+  background:linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
 
-      .navbar {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 40px;
-        background: rgba(0,0,0,0.6);
-        backdrop-filter: blur(20px);
-        border-radius: 50px;
-        border: 1px solid rgba(255,215,0,0.2);
-      }
+/* NAVBAR (COMMON) */
+.navbar{
+  position:fixed;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:95%;
+  padding:15px 30px;
+  background:rgba(0,0,0,0.85);
+  border-radius:50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  flex-wrap:wrap;
+}
 
-      .logo { display:flex; align-items:center; gap:12px; }
-      .logo img { max-height:25px; border-radius:25%; }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-      .nav-center { display: flex; gap: 30px; }
-      .nav-center a { text-decoration: none; color: #ddd; }
-      .nav-center a.active, .nav-center a:hover { color: gold; }
+.logo img{
+  max-height:25px;
+  border-radius:25%;
+}
 
-      .hero { text-align: center; margin-bottom: 40px; }
-      .hero h1 { font-size: 36px; color: gold; }
+.nav-center{
+  display:flex;
+  gap:25px;
+}
 
-      .grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 25px;
-      }
+.nav-center a{
+  text-decoration:none;
+  color:#ddd;
+}
 
-      .box {
-        width: 350px;
-        padding: 25px;
-        border-radius: 20px;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,215,0,0.2);
-      }
+.nav-center a.active,
+.nav-center a:hover{
+  color:gold;
+}
 
-      .contact-item { margin: 10px 0; }
+/* HERO */
+.hero{
+  text-align:center;
+  margin-bottom:40px;
+}
 
-      .box input, .box textarea {
-        width: 100%;
-        margin-top: 5px;
-        padding: 10px;
-        border-radius: 10px;
-        border: none;
-        background: rgba(255,255,255,0.08);
-        color: white;
-      }
+.hero h1{
+  font-size:36px;
+  color:gold;
+}
 
-      .box button {
-        width: 100%;
-        padding: 12px;
-        margin-top: 15px;
-        border: none;
-        border-radius: 25px;
-        background: gold;
-        color: black;
-        font-weight: 600;
-        cursor: pointer;
-      }
+/* GRID (DESKTOP PERFECT ALIGN) */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
 
-      .rating i { font-size: 25px; color: #555; cursor: pointer; }
-      .rating i.active { color: gold; }
+.box{
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,215,0,0.2);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
 
-      iframe {
-        border-radius: 15px;
-        margin-top: 10px;
-      }
+/* CONTACT TEXT */
+.contact-item{
+  margin:10px 0;
+}
 
-      .footer { text-align: center; margin-top: 40px; opacity: 0.7; }
-    </style>
-  </head>
+/* INPUT */
+.box input,
+.box textarea{
+  width:100%;
+  margin-top:8px;
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  background:rgba(255,255,255,0.08);
+  color:white;
+}
 
-  <body>
+.box textarea{
+  min-height:100px;
+}
 
-    <header class="navbar">
-      <div class="logo">
-        <img src="logo.jpeg" />
-        <h2>Image <span style="color:gold;">Masterz</span></h2>
-      </div>
+/* BUTTON */
+.box button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:25px;
+  background:gold;
+  color:black;
+  font-weight:600;
+  cursor:pointer;
+}
 
-      <div class="nav-center">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="packages.html">Packages</a>
-        <a href="booking.html">Booking</a>
-        <a href="#" class="active">Contact</a>
-      </div>
-    </header>
+/* RATING */
+.rating{
+  margin:10px 0;
+}
 
-    <div class="hero">
-      <h1>Let’s Work Together 📸</h1>
-      <p>Send message or leave review!</p>
-    </div>
+.rating i{
+  font-size:25px;
+  color:#555;
+  cursor:pointer;
+}
 
-    <div class="grid">
+.rating i.active{
+  color:gold;
+}
 
-      <!-- Contact -->
-      <div class="box">
-        <h2>Contact Info</h2>
-        <div class="contact-item">📞 +91 9876543210</div>
-        <div class="contact-item">📧 mystudio@gmail.com</div>
-        <div class="contact-item">📍 Chennai</div>
-      </div>
+/* MAP */
+iframe{
+  border-radius:15px;
+  margin-top:10px;
+  width:100%;
+  height:250px;
+}
 
-      <!-- Map -->
-      <div class="box">
-        <h2>Our Location 📍</h2>
-        <iframe 
-          src="https://www.google.com/maps?q=Chennai&output=embed"
-          width="100%" 
-          height="250">
-        </iframe>
-      </div>
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:50px;
+  opacity:0.7;
+}
 
-      <!-- WhatsApp -->
-      <div class="box">
-        <h2>Send Message</h2>
-        <form onsubmit="sendWhatsApp(); return false;">
-          <input type="text" id="name" placeholder="Your Name" required />
-          <input type="email" id="email" placeholder="Your Email" required />
-          <input type="text" id="subject" placeholder="Subject" required />
-          <textarea id="message" placeholder="Your Message"></textarea>
-          <button type="submit">Send WhatsApp</button>
-        </form>
-      </div>
+/* 🔥 TABLET */
+@media (max-width:1024px){
+  .grid{
+    grid-template-columns:1fr;
+    max-width:700px;
+  }
+}
 
-      <!-- Review -->
-      <div class="box">
-        <h2>Write Review ⭐</h2>
+/* 🔥 MOBILE (MATCH INDEX) */
+@media (max-width:768px){
 
-        <input type="text" id="rname" placeholder="Your Name" />
+  .navbar{
+    padding:10px 15px;
+    flex-direction:row;
+  }
 
-        <div class="rating" id="rating">
-          <i onclick="rate(1)" class="fa-solid fa-star"></i>
-          <i onclick="rate(2)" class="fa-solid fa-star"></i>
-          <i onclick="rate(3)" class="fa-solid fa-star"></i>
-          <i onclick="rate(4)" class="fa-solid fa-star"></i>
-          <i onclick="rate(5)" class="fa-solid fa-star"></i>
-        </div>
+  .nav-center{
+    overflow-x:auto;
+    white-space:nowrap;
+    flex-wrap:nowrap;
+    gap:15px;
+    width:100%;
+    margin-top:10px;
+  }
 
-        <textarea id="rtext" placeholder="Your Review"></textarea>
+  .nav-center a{
+    display:inline-block;
+    font-size:14px;
+  }
 
-        <button onclick="saveReview()">Submit Review</button>
-      </div>
+  .hero h1{
+    font-size:28px;
+  }
 
-    </div>
+  .grid{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:15px;
+  }
+}
+</style>
+</head>
 
-    <footer class="footer">© 2026 Image Masterz</footer>
+<body>
 
-    <script>
-      function sendWhatsApp() {
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let subject = document.getElementById("subject").value;
-        let message = document.getElementById("message").value;
+<header class="navbar">
+  <div class="logo">
+    <img src="logo.jpeg" />
+    <h2>Image <span style="color:gold;">Masterz</span></h2>
+  </div>
 
-        let text = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
-        let url = "https://wa.me/919876543210?text=" + encodeURIComponent(text);
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="packages.html">Packages</a>
+    <a href="booking.html">Booking</a>
+    <a href="#" class="active">Contact</a>
+  </div>
+</header>
 
-        window.open(url, "_blank");
-      }
+<div class="hero">
+  <h1>Let’s Work Together 📸</h1>
+  <p>Send message or leave review!</p>
+</div>
 
-      let ratingValue = 0;
+<div class="grid">
 
-      function rate(v) {
-        ratingValue = v;
-        let stars = document.querySelectorAll("#rating i");
-        stars.forEach((s, i) => s.classList.toggle("active", i < v));
-      }
+<!-- Contact -->
+<div class="box">
+  <h2>Contact Info</h2>
+  <div class="contact-item">📞 +91 9876543210</div>
+  <div class="contact-item">📧 mystudio@gmail.com</div>
+  <div class="contact-item">📍 Chennai</div>
+</div>
 
-      function saveReview() {
-        let name = document.getElementById("rname").value;
-        let text = document.getElementById("rtext").value;
+<!-- Map -->
+<div class="box">
+  <h2>Our Location 📍</h2>
+  <iframe src="https://www.google.com/maps?q=Chennai&output=embed"></iframe>
+</div>
 
-        if (ratingValue === 0) {
-          alert("Select star rating!");
-          return;
-        }
+<!-- WhatsApp -->
+<div class="box">
+  <h2>Send Message</h2>
+  <form onsubmit="sendWhatsApp(); return false;">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <input type="text" id="subject" placeholder="Subject" required />
+    <textarea id="message" placeholder="Your Message"></textarea>
+    <button type="submit">Send WhatsApp</button>
+  </form>
+</div>
 
-        if (!name || !text) {
-          alert("Fill all fields!");
-          return;
-        }
+<!-- Review -->
+<div class="box">
+  <h2>Write Review ⭐</h2>
 
-        // Save locally
-        let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
-        reviews.push({ name, text, stars: ratingValue });
-        localStorage.setItem("reviews", JSON.stringify(reviews));
+  <input type="text" id="rname" placeholder="Your Name" />
 
-        // Email template
-        let emailContent = `
-<h2 style="color:#ffd700;">⭐ New Review Received</h2>
-<p><strong>Name:</strong> ${name}</p>
-<p><strong>Rating:</strong> ${ratingValue} / 5</p>
-<p><strong>Review:</strong></p>
-<p style="background:#f5f5f5;padding:10px;border-radius:10px;color:black;">
-${text}
-</p>
-<hr>
-<p style="font-size:12px;color:gray;">Image Masterz Website</p>
-`;
+  <div class="rating" id="rating">
+    <i onclick="rate(1)" class="fa-solid fa-star"></i>
+    <i onclick="rate(2)" class="fa-solid fa-star"></i>
+    <i onclick="rate(3)" class="fa-solid fa-star"></i>
+    <i onclick="rate(4)" class="fa-solid fa-star"></i>
+    <i onclick="rate(5)" class="fa-solid fa-star"></i>
+  </div>
 
-        let form = document.createElement("form");
-        form.action = "https://formsubmit.co/haribca40@gmail.com";
-        form.method = "POST";
+  <textarea id="rtext" placeholder="Your Review"></textarea>
 
-      form.innerHTML = `
+  <button onclick="saveReview()">Submit Review</button>
+</div>
+
+</div>
+
+<footer class="footer">© 2026 Image Masterz</footer>
+
+<script>
+function sendWhatsApp() {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let subject = document.getElementById("subject").value;
+  let message = document.getElementById("message").value;
+
+  let text = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+  let url = "https://wa.me/919876543210?text=" + encodeURIComponent(text);
+
+  window.open(url, "_blank");
+}
+
+let ratingValue = 0;
+
+function rate(v) {
+  ratingValue = v;
+  let stars = document.querySelectorAll("#rating i");
+  stars.forEach((s, i) => s.classList.toggle("active", i < v));
+}
+
+function saveReview() {
+  let name = document.getElementById("rname").value;
+  let text = document.getElementById("rtext").value;
+
+  if (ratingValue === 0) {
+    alert("Select star rating!");
+    return;
+  }
+
+  if (!name || !text) {
+    alert("Fill all fields!");
+    return;
+  }
+
+  let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+  reviews.push({ name, text, stars: ratingValue });
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+
+  let form = document.createElement("form");
+  form.action = "https://formsubmit.co/haribca40@gmail.com";
+  form.method = "POST";
+
+  form.innerHTML = `
     <input type="hidden" name="_subject" value="New Review">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
@@ -242,13 +333,12 @@ ${text}
     <input type="text" name="Review" value="${text}">
   `;
 
-        document.body.appendChild(form);
+  document.body.appendChild(form);
 
-        alert("Review submitted successfully!");
+  alert("Review submitted successfully!");
+  form.submit();
+}
+</script>
 
-        form.submit();
-      }
-    </script>
-
-  </body>
+</body>
 </html>
